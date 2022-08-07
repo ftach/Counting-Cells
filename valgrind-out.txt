@@ -1,0 +1,1289 @@
+==716== Memcheck, a memory error detector
+==716== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==716== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==716== Command: ./bin/test_beta cellules.pgm
+==716== Parent PID: 9
+==716== 
+--716-- 
+--716-- Valgrind options:
+--716--    --leak-check=full
+--716--    --show-leak-kinds=all
+--716--    --track-origins=yes
+--716--    --verbose
+--716--    --log-file=valgrind-out.txt
+--716-- Contents of /proc/version:
+--716--   Linux version 5.10.16.3-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-linux-gcc (GCC) 9.3.0, GNU ld (GNU Binutils) 2.34.0.20200220) #1 SMP Fri Apr 2 22:23:49 UTC 2021
+--716-- 
+--716-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--716-- Page sizes: currently 4096, max supported 4096
+--716-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--716-- Reading syms from /mnt/c/Users/flore/Documents/Phelma/S6/Projet_Programmation/barbeaum_tachennf/bin/test_beta
+--716-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--716--   Considering /usr/lib/x86_64-linux-gnu/ld-2.31.so ..
+--716--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
+--716--   Considering /lib/x86_64-linux-gnu/ld-2.31.so ..
+--716--   .. CRC mismatch (computed 0306b78c wanted 8d362b37)
+--716--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.31.so ..
+--716--   .. CRC is valid
+--716-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--716--    object doesn't have a symbol table
+--716--    object doesn't have a dynamic symbol table
+--716-- Scheduler: using generic scheduler lock implementation.
+--716-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==716== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-716-by-tachennf-on-???
+==716== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-716-by-tachennf-on-???
+==716== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-716-by-tachennf-on-???
+==716== 
+==716== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==716== don't want to do, unless you know exactly what you're doing,
+==716== or are doing some strange experiment):
+==716==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=716 ...command...
+==716== 
+==716== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==716==   /path/to/gdb ./bin/test_beta
+==716== and then give GDB the following command
+==716==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=716
+==716== --pid is optional if only one valgrind process is running
+==716== 
+--716-- REDIR: 0x4022e10 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--716-- REDIR: 0x4022be0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--716-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--716--    object doesn't have a symbol table
+--716-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--716--    object doesn't have a symbol table
+==716== WARNING: new redirection conflicts with existing -- ignoring it
+--716--     old: 0x04022e10 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--716--     new: 0x04022e10 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--716-- REDIR: 0x401f5f0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--716-- REDIR: 0x4023370 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--716-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--716--   Considering /usr/lib/x86_64-linux-gnu/libc-2.31.so ..
+--716--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
+--716--   Considering /lib/x86_64-linux-gnu/libc-2.31.so ..
+--716--   .. CRC mismatch (computed ef41b1a0 wanted f854b801)
+--716--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.31.so ..
+--716--   .. CRC is valid
+--716-- REDIR: 0x48f54b0 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f47b0 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f57e0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f40d0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4810 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f6c80 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x4911d10 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x4911850 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5610 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5440 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4740 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4180 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5570 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x4911810 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f46a0 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4260 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5830 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4200 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5980 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x4912f80 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x4911890 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4850 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4130 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4660 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48fdbd0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5880 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5400 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x4911960 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f4b10 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5780 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f5720 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f6cc0 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x48f58d0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--716-- REDIR: 0x49dd410 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--716-- REDIR: 0x48f0b40 (libc.so.6:calloc) redirected to 0x483dce0 (calloc)
+--716-- REDIR: 0x49ddaa0 (libc.so.6:__strcat_avx2) redirected to 0x483ec20 (strcat)
+--716-- REDIR: 0x48ef110 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--716-- REDIR: 0x48f4fd0 (libc.so.6:__GI_strstr) redirected to 0x4843ca0 (__strstr_sse2)
+--716-- REDIR: 0x49e05f0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--716-- REDIR: 0x49e05d0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+--716-- REDIR: 0x48ef700 (libc.so.6:free) redirected to 0x483c9d0 (free)
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109A93: intersection (op_booleennes.c:41)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A0D7: expansion (op_morphologiques.c:57)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A0AB: expansion (op_morphologiques.c:57)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A07F: expansion (op_morphologiques.c:56)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A054: expansion (op_morphologiques.c:56)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A024: expansion (op_morphologiques.c:56)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109FF4: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109FC9: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109F9D: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109F71: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+--716-- REDIR: 0x49d9bd0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x48421e0 (bcmp)
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x484224E: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109E49: reconstruction (op_morphologiques.c:32)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x4842225: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109E49: reconstruction (op_morphologiques.c:32)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109E4C: reconstruction (op_morphologiques.c:32)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== More than 10000000 total errors detected.  I'm not reporting any more.
+==716== Final error counts will be inaccurate.  Go fix your program!
+==716== Rerun with --error-limit=no to disable this cutoff.  Note
+==716== that errors may occur in your program without prior warning from
+==716== Valgrind, because errors are no longer being displayed.
+==716== 
+--716-- REDIR: 0x49dd220 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+==716== 
+==716== HEAP SUMMARY:
+==716==     in use at exit: 96,469,912 bytes in 1,238 blocks
+==716==   total heap usage: 1,469 allocs, 233 frees, 113,935,559 bytes allocated
+==716== 
+==716== Searching for pointers to 1,238 not-freed blocks
+==716== Checked 86,488 bytes
+==716== 
+==716== 2,576 bytes in 1 blocks are possibly lost in loss record 1 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are possibly lost in loss record 2 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are possibly lost in loss record 3 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 4 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1096AA: read_pgm_img (lecture_ecriture.c:24)
+==716==    by 0x1093C5: main (test_beta.c:33)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 5 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B1BD: seal_hole (application_cellules.c:41)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 6 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B201: seal_hole (application_cellules.c:43)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 7 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 8 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 9 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 10 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 11 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 12 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109E72: reconstruction (op_morphologiques.c:34)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 13 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10A936: inversion (op_morphologiques.c:128)
+==716==    by 0x10B2E5: seal_hole (application_cellules.c:48)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 14 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3B6: delete_edge_cell (application_cellules.c:66)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 15 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3D8: delete_edge_cell (application_cellules.c:67)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 16 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 17 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 18 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 19 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 20 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 21 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B628: last_erosion (application_cellules.c:109)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 22 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B656: last_erosion (application_cellules.c:110)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 23 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B6A2: last_erosion (application_cellules.c:111)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 24 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B6C4: last_erosion (application_cellules.c:112)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 25 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B6E9: last_erosion (application_cellules.c:113)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 26 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x1094F5: main (test_beta.c:51)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 27 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3B6: delete_edge_cell (application_cellules.c:66)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 28 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3D8: delete_edge_cell (application_cellules.c:67)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 29 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 30 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 31 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 32 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 33 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 153,272 bytes in 1 blocks are indirectly lost in loss record 34 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 35 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1096AA: read_pgm_img (lecture_ecriture.c:24)
+==716==    by 0x1093C5: main (test_beta.c:33)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 36 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B1BD: seal_hole (application_cellules.c:41)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 37 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B201: seal_hole (application_cellules.c:43)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 38 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 39 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 40 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 41 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 42 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 43 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109E72: reconstruction (op_morphologiques.c:34)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 44 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10A936: inversion (op_morphologiques.c:128)
+==716==    by 0x10B2E5: seal_hole (application_cellules.c:48)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 45 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3B6: delete_edge_cell (application_cellules.c:66)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 46 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3D8: delete_edge_cell (application_cellules.c:67)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 47 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 48 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 49 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 50 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 51 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 52 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B628: last_erosion (application_cellules.c:109)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 53 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B656: last_erosion (application_cellules.c:110)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 54 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B6A2: last_erosion (application_cellules.c:111)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 55 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B6C4: last_erosion (application_cellules.c:112)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 56 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B6E9: last_erosion (application_cellules.c:113)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 57 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x1094F5: main (test_beta.c:51)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 58 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3B6: delete_edge_cell (application_cellules.c:66)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 59 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B3D8: delete_edge_cell (application_cellules.c:67)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 60 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 61 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 62 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 63 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 64 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 155,848 (2,576 direct, 153,272 indirect) bytes in 1 blocks are definitely lost in loss record 65 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 306,544 bytes in 2 blocks are indirectly lost in loss record 66 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 311,696 (5,152 direct, 306,544 indirect) bytes in 2 blocks are definitely lost in loss record 67 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109533: main (test_beta.c:54)
+==716== 
+==716== 3,218,712 bytes in 21 blocks are indirectly lost in loss record 68 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,272,808 (54,096 direct, 3,218,712 indirect) bytes in 21 blocks are definitely lost in loss record 69 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,371,984 bytes in 22 blocks are indirectly lost in loss record 70 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109E72: reconstruction (op_morphologiques.c:34)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,371,984 bytes in 22 blocks are indirectly lost in loss record 71 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109906: xor (op_booleennes.c:17)
+==716==    by 0x10B843: last_erosion (application_cellules.c:122)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,428,656 (56,672 direct, 3,371,984 indirect) bytes in 22 blocks are definitely lost in loss record 72 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109E72: reconstruction (op_morphologiques.c:34)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,428,656 (56,672 direct, 3,371,984 indirect) bytes in 22 blocks are definitely lost in loss record 73 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109906: xor (op_booleennes.c:17)
+==716==    by 0x10B843: last_erosion (application_cellules.c:122)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,525,256 bytes in 23 blocks are indirectly lost in loss record 74 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B7AE: last_erosion (application_cellules.c:120)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,525,256 bytes in 23 blocks are indirectly lost in loss record 75 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,525,256 bytes in 23 blocks are indirectly lost in loss record 76 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,525,256 bytes in 23 blocks are indirectly lost in loss record 77 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,525,256 bytes in 23 blocks are indirectly lost in loss record 78 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,525,256 bytes in 23 blocks are indirectly lost in loss record 79 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109B85: make_union (op_booleennes.c:58)
+==716==    by 0x10B892: last_erosion (application_cellules.c:123)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,584,504 (59,248 direct, 3,525,256 indirect) bytes in 23 blocks are definitely lost in loss record 80 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x10B7AE: last_erosion (application_cellules.c:120)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,584,504 (59,248 direct, 3,525,256 indirect) bytes in 23 blocks are definitely lost in loss record 81 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CBF: reconstruction (op_morphologiques.c:20)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,584,504 (59,248 direct, 3,525,256 indirect) bytes in 23 blocks are definitely lost in loss record 82 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D03: reconstruction (op_morphologiques.c:22)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,584,504 (59,248 direct, 3,525,256 indirect) bytes in 23 blocks are definitely lost in loss record 83 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109D25: reconstruction (op_morphologiques.c:23)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,584,504 (59,248 direct, 3,525,256 indirect) bytes in 23 blocks are definitely lost in loss record 84 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,584,504 (59,248 direct, 3,525,256 indirect) bytes in 23 blocks are definitely lost in loss record 85 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109B85: make_union (op_booleennes.c:58)
+==716==    by 0x10B892: last_erosion (application_cellules.c:123)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,831,800 bytes in 25 blocks are indirectly lost in loss record 86 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 3,896,200 (64,400 direct, 3,831,800 indirect) bytes in 25 blocks are definitely lost in loss record 87 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 7,203,784 bytes in 47 blocks are indirectly lost in loss record 88 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 7,324,856 (121,072 direct, 7,203,784 indirect) bytes in 47 blocks are definitely lost in loss record 89 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B7FD: last_erosion (application_cellules.c:121)
+==716==    by 0x1094B7: main (test_beta.c:48)
+==716== 
+==716== 10,575,768 bytes in 69 blocks are indirectly lost in loss record 90 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 10,575,768 bytes in 69 blocks are indirectly lost in loss record 91 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 10,753,512 (177,744 direct, 10,575,768 indirect) bytes in 69 blocks are definitely lost in loss record 92 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 10,756,088 (180,320 direct, 10,575,768 indirect) bytes in 70 blocks are definitely lost in loss record 93 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B440: delete_edge_cell (application_cellules.c:70)
+==716==    by 0x109479: main (test_beta.c:45)
+==716== 
+==716== 13,028,120 bytes in 85 blocks are indirectly lost in loss record 94 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 13,181,392 bytes in 86 blocks are indirectly lost in loss record 95 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 13,247,080 (218,960 direct, 13,028,120 indirect) bytes in 85 blocks are definitely lost in loss record 96 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109A36: intersection (op_booleennes.c:36)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 13,402,928 (221,536 direct, 13,181,392 indirect) bytes in 86 blocks are definitely lost in loss record 97 of 97
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109752: allocate_memory (lecture_ecriture.c:41)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== LEAK SUMMARY:
+==716==    definitely lost: 1,591,968 bytes in 618 blocks
+==716==    indirectly lost: 94,568,824 bytes in 617 blocks
+==716==      possibly lost: 309,120 bytes in 3 blocks
+==716==    still reachable: 0 bytes in 0 blocks
+==716==         suppressed: 0 bytes in 0 blocks
+==716== 
+==716== ERROR SUMMARY: 10000050 errors from 63 contexts (suppressed: 0 from 0)
+==716== 
+==716== 1 errors in context 1 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109E4C: reconstruction (op_morphologiques.c:32)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 3 errors in context 2 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x4842225: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109E49: reconstruction (op_morphologiques.c:32)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 41 errors in context 3 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x484224E: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109E49: reconstruction (op_morphologiques.c:32)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109CE1: reconstruction (op_morphologiques.c:21)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 917055 errors in context 4 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109F71: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 917102 errors in context 5 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109FF4: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 917249 errors in context 6 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A07F: expansion (op_morphologiques.c:56)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 917736 errors in context 7 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109F9D: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 917873 errors in context 8 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A024: expansion (op_morphologiques.c:56)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 918014 errors in context 9 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A0AB: expansion (op_morphologiques.c:57)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 918317 errors in context 10 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109FC9: expansion (op_morphologiques.c:55)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 918441 errors in context 11 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A054: expansion (op_morphologiques.c:56)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 918553 errors in context 12 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x10A0D7: expansion (op_morphologiques.c:57)
+==716==    by 0x109DFC: reconstruction (op_morphologiques.c:31)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== 
+==716== 1739615 errors in context 13 of 63:
+==716== Conditional jump or move depends on uninitialised value(s)
+==716==    at 0x109A93: intersection (op_booleennes.c:41)
+==716==    by 0x109DA3: reconstruction (op_morphologiques.c:29)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716==  Uninitialised value was created by a heap allocation
+==716==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==716==    by 0x109767: allocate_memory (lecture_ecriture.c:42)
+==716==    by 0x1098A4: init_img (lecture_ecriture.c:83)
+==716==    by 0x109F33: expansion (op_morphologiques.c:51)
+==716==    by 0x109D45: reconstruction (op_morphologiques.c:24)
+==716==    by 0x10B2A7: seal_hole (application_cellules.c:47)
+==716==    by 0x10943B: main (test_beta.c:42)
+==716== 
+==716== ERROR SUMMARY: 10000050 errors from 63 contexts (suppressed: 0 from 0)
